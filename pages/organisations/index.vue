@@ -18,8 +18,8 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import CompanyCard from "../components/CompanyCard"
-//import UsersAPI from '../services/api/UserData'
+import CompanyCard from "../../components/CompanyCard"
+
 
 
 

@@ -17,8 +17,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import UserCard from "../components/UserCard"
-//import UsersAPI from '../services/api/UserData'
+import UserCard from "../../components/UserCard"
 
 export default {
   name: 'volunteers',
