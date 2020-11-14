@@ -34,14 +34,14 @@ export default {
 
     created() {
             console.clear()
-            /*
-            UsersAPI.getVolunteers()
-                .then(posts => {
-                    this.$store.dispatch('addVolunteers', posts);
-                    
-                })
             
-        */
+            fetch('https://safe-hamlet-27016.herokuapp.com/volunteers')
+              .then(res => {
+                res.json()
+              .then(post => {
+                this.$store.dispatch('addVolunteers', post)
+              })
+              })
         },
             
             

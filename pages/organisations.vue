@@ -21,11 +21,14 @@ import {mapGetters} from 'vuex'
 import CompanyCard from "../components/CompanyCard"
 //import UsersAPI from '../services/api/UserData'
 
+
+
 export default {
   name: 'organisations',
   components: {
             CompanyCard
         },
+        
 
     computed: {
             ...mapGetters([
@@ -33,16 +36,22 @@ export default {
             ])
         },    
 
+    
+
     created() {
-            console.clear()
-            /*
-            UsersAPI.getOrganisations()
-                .then(posts => {
-                    this.$store.dispatch('addOrganisations', posts);
-                    
-                })
-                */
-        },
+            console.clear();
+            
+            fetch('https://safe-hamlet-27016.herokuapp.com/organisations')
+              .then(res => {
+                res.json()
+              .then(post => {
+                this.$store.dispatch('addOrganisations', post)
+              })
+              })
+              
+            
+            },
+        
 }           
 </script>
 

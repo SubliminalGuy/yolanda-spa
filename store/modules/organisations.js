@@ -25,7 +25,6 @@ export default {
     actions: {
         addOrganisations: function (context, organisations) {
             context.commit('addOrganisations', organisations)
-             
         }
     }
 
