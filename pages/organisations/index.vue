@@ -19,7 +19,7 @@
 <script>
 import {mapGetters} from 'vuex'
 import CompanyCard from "../../components/CompanyCard"
-
+import axios from 'axios'
 
 
 
@@ -40,7 +40,12 @@ export default {
 
     created() {
             console.clear();
-            
+
+            axios.get('https://safe-hamlet-27016.herokuapp.com/organisations')
+              .then(response => {
+                this.$store.dispatch('addOrganisations', response.data)
+              })
+            /*
             fetch('https://safe-hamlet-27016.herokuapp.com/organisations')
               .then(res => {
                 res.json()
@@ -48,9 +53,9 @@ export default {
                 this.$store.dispatch('addOrganisations', post)
               })
               })
-              
+              */
+        }
             
-            },
         
 }           
 </script>

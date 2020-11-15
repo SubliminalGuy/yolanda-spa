@@ -18,6 +18,7 @@
 <script>
 import {mapGetters} from 'vuex'
 import UserCard from "../../components/UserCard"
+import axios from 'axios'
 
 export default {
   name: 'volunteers',
@@ -33,7 +34,12 @@ export default {
 
     created() {
             console.clear()
-            
+
+            axios.get('https://safe-hamlet-27016.herokuapp.com/volunteers')
+              .then(response => {
+                this.$store.dispatch('addVolunteers', response.data)
+              })
+            /*
             fetch('https://safe-hamlet-27016.herokuapp.com/volunteers')
               .then(res => {
                 res.json()
@@ -41,6 +47,7 @@ export default {
                 this.$store.dispatch('addVolunteers', post)
               })
               })
+              */
         },
             
             
