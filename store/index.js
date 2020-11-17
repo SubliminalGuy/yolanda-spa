@@ -1,19 +1,6 @@
 
-import Vuex from 'vuex';
-import volunteers from "./modules/volunteers";
-import organisations from "./modules/organisations";
-import menuModal from "./modules/menuModal"
+export const state = () => ({
 
-
-
-const store = () => {
-    return new Vuex.Store({
-
-    modules: {
-        volunteers, organisations, menuModal
-    },
+})
     
-   
-});
-}
-export default store;
+export const getters = {}

@@ -1,7 +1,7 @@
 <template>
 
     <div class="flex flex-wrap m-2 w-5/6 md:w-1/3 lg:w-1/4 justify-center bg-gray-500 border-solid border-gray-600 border-2 p-6  rounded-lg">
-        <router-link :to="`/organisations/${id}`" >     
+        <nuxt-link :to="`/organisations/${id}`" >     
             <div class="text-center">
                 <h1 class="font-medium text-gray-900 text-2xl">{{name}}</h1></div>
                 <div class="m-8">
@@ -17,7 +17,7 @@
 
                 </div>
             </div>
-        </router-link>
+        </nuxt-link>
         </div>
 
 </template>

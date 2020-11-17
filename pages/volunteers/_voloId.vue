@@ -23,7 +23,6 @@
 
 
 <script>
-import {mapGetters} from 'vuex'
 
 
 export default {
@@ -31,11 +30,9 @@ export default {
    
 
     computed: {
-            ...mapGetters([
-                'getVolunteers'
-            ]),
+            
             getVolunteerData() {
-                let getVolunteerData = this.getVolunteers.filter(item => item.id == this.$nuxt._route.params.voloId)
+                let getVolunteerData = this.$store.state.volunteers.volunteers.filter(item => item.id == this.$nuxt._route.params.voloId)
                 return getVolunteerData[0]
             }
             

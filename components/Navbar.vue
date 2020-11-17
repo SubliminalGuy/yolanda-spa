@@ -38,7 +38,7 @@ export default {
 
   methods: {
     clickMenuModal: function() {
-      this.$store.dispatch('changeMenuModal');
+      this.$store.commit("menuModal/changeMenuModal");
     }
 
   }

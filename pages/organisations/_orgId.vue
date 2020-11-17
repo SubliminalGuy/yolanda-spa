@@ -26,25 +26,26 @@
 
 
 <script>
-import {mapGetters} from 'vuex'
 
 
 export default {
-  name: '_orgId',
-   
+    name: '_orgId',
 
+    
+   
     computed: {
-            ...mapGetters([
-                'getOrganisations'
-            ]),
             getOrganisationData() {
-                let getOrganisationData = this.getOrganisations.filter(item => item.id == this.$nuxt._route.params.orgId)
+                if (this.$nuxt._route.params.orgId) {
+                this.$store.commit('routeParam/changeRouteParam', this.$nuxt._route.params.orgId)
+                }
+                
+                let getOrganisationData = this.$store.state.organisations.organisations.filter(item => item.id == this.$store.state.routeParam.routeParam)  
                 return getOrganisationData[0]
             },
             searchedNeed: function () {
             let needArray = this.getOrganisationData.needs.split(',')
             return needArray
-        }
+            }
             
         },    
  

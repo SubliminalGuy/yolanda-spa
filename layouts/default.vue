@@ -25,14 +25,15 @@ export default {
   components: {
     Navbar, Footbar
   },
+  
   computed: {
-            ...mapGetters([
-                'getMenuModal',
-            ])
+          getMenuModal () {
+            return this.$store.state.menuModal.menuModal
+          }
         },   
   methods: {
     clickMenuModal: function() {
-      this.$store.dispatch('changeMenuModal');
+        this.$store.commit("menuModal/changeMenuModal");
     }
   }
 }

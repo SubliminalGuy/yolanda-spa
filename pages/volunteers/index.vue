@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+
 import UserCard from "../../components/UserCard"
 import axios from 'axios'
 
@@ -27,9 +27,9 @@ export default {
         },
 
     computed: {
-            ...mapGetters([
-                'getVolunteers',
-            ])
+            getVolunteers() {
+            return this.$store.state.volunteers.volunteers
+          }
         },    
 
     created() {
@@ -37,17 +37,11 @@ export default {
 
             axios.get('https://safe-hamlet-27016.herokuapp.com/volunteers')
               .then(response => {
-                this.$store.dispatch('addVolunteers', response.data)
+                this.$store.commit("volunteers/addVolunteers", response.data);
               })
-            /*
-            fetch('https://safe-hamlet-27016.herokuapp.com/volunteers')
-              .then(res => {
-                res.json()
-              .then(post => {
-                this.$store.dispatch('addVolunteers', post)
-              })
-              })
-              */
+
+
+          
         },
             
             
