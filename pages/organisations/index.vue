@@ -8,7 +8,7 @@
     <div class="flex w-4/5 justify-center items-center">
       <div class="flex flex-wrap justify-center md:justify-evenly my-6 md:my-12 ">
       
-          <company-card v-for="organisation in getOrganisations" :key="`company${organisation.id}`" :id="organisation.id" :name="organisation.name" :field="organisation.field" :logo="organisation.img_url" :needs="organisation.needs"></company-card>  
+          <company-card v-for="organisation in organisations" :key="`company${organisation.id}`" :id="organisation.id" :name="organisation.name" :field="organisation.field" :logo="organisation.img_url" :needs="organisation.needs"></company-card>  
       </div>
       
     </div>
@@ -28,24 +28,18 @@ export default {
   components: {
             CompanyCard
         },
-        
+         
 
-    computed: {
-          getOrganisations() {
-            return this.$store.state.organisations.organisations
-          }
-        },    
-
-    
+    async asyncData () {
+     let response = await axios.get('https://safe-hamlet-27016.herokuapp.com/organisations')
+    console.log(response.data)
+    return {organisations: response.data}
+  
+    },
 
     created() {
-            console.clear();
+            
 
-            axios.get('https://safe-hamlet-27016.herokuapp.com/organisations')
-              .then(response => {
-                this.$store.commit("organisations/addOrganisations", response.data);
-                
-              })
             
         }
             

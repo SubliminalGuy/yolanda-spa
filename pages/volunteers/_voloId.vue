@@ -23,16 +23,21 @@
 
 
 <script>
-
+import axios from 'axios'
 
 export default {
   name: 'VolunteerPage',
    
+   async asyncData () {
+     let response = await axios.get('https://safe-hamlet-27016.herokuapp.com/volunteers')
+      return {volunteers: response.data}
+  
+    },
 
     computed: {
             
             getVolunteerData() {
-                let getVolunteerData = this.$store.state.volunteers.volunteers.filter(item => item.id == this.$nuxt._route.params.voloId)
+                let getVolunteerData = this.volunteers.filter(item => item.id == this.$nuxt._route.params.voloId)
                 return getVolunteerData[0]
             }
             

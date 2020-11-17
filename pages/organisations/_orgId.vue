@@ -26,20 +26,20 @@
 
 
 <script>
-
+import axios from 'axios'
 
 export default {
     name: '_orgId',
 
-    
+    async asyncData () {
+     let response = await axios.get("https://safe-hamlet-27016.herokuapp.com/organisations")
+    return {organisations: response.data}
+  
+    },
    
     computed: {
             getOrganisationData() {
-                if (this.$nuxt._route.params.orgId) {
-                this.$store.commit('routeParam/changeRouteParam', this.$nuxt._route.params.orgId)
-                }
-                
-                let getOrganisationData = this.$store.state.organisations.organisations.filter(item => item.id == this.$store.state.routeParam.routeParam)  
+                let getOrganisationData = this.organisations.filter(item => item.id == this.$nuxt._route.params.orgId)  
                 return getOrganisationData[0]
             },
             searchedNeed: function () {

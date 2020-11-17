@@ -7,7 +7,7 @@
     <div class="flex w-4/5 justify-center items-center">
         <div class="flex flex-wrap justify-center md:justify-evenly my-6 md:my-12 ">
             
-            <user-card v-for="volunteer in getVolunteers" :key="`volunteer${volunteer._id}`" :id="volunteer.id" :name="volunteer.name" :roles="volunteer.roles" :picture="volunteer.image_url"></user-card>    
+            <user-card v-for="volunteer in volunteers" :key="`volunteer${volunteer._id}`" :id="volunteer.id" :name="volunteer.name" :roles="volunteer.roles" :picture="volunteer.image_url"></user-card>    
         
         </div>
     </div>
@@ -26,26 +26,17 @@ export default {
             UserCard
         },
 
-    computed: {
-            getVolunteers() {
-            return this.$store.state.volunteers.volunteers
-          }
-        },    
+
+    async asyncData () {
+     let response = await axios.get('https://safe-hamlet-27016.herokuapp.com/volunteers')
+      return {volunteers: response.data}
+  
+    },
 
     created() {
             console.clear()
-
-            axios.get('https://safe-hamlet-27016.herokuapp.com/volunteers')
-              .then(response => {
-                this.$store.commit("volunteers/addVolunteers", response.data);
-              })
-
-
-          
         },
-            
-            
-               
+                         
         
 }
 </script>
