@@ -19,7 +19,7 @@
 <script>
 
 import CompanyCard from "../../components/CompanyCard"
-import axios from 'axios'
+
 
 
 
@@ -28,20 +28,12 @@ export default {
   components: {
             CompanyCard
         },
-         
-
-    async asyncData () {
-     let response = await axios.get('https://safe-hamlet-27016.herokuapp.com/organisations')
-    console.log(response.data)
-    return {organisations: response.data}
+     async asyncData ({$axios}) {
+        let response = await $axios.$get("organisations")
+        return {organisations: response}
   
-    },
-
-    created() {
-            
-
-            
-        }
+    }     
+    
             
         
 }           

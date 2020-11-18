@@ -23,25 +23,28 @@
 
 
 <script>
-import axios from 'axios'
+
 
 export default {
   name: 'VolunteerPage',
-   
-   async asyncData () {
-     let response = await axios.get('https://safe-hamlet-27016.herokuapp.com/volunteers')
-      return {volunteers: response.data}
+
+  head () {
+      return {
+          title: this.getVolunteerData.name,
+        meta: [
+            {name: 'twitter:title', content: 'This Volunteer Rocks:'},
+            {name: 'twitter:description', content: this.getVolunteerData.name},
+            {name: 'twitter:image', content: this.getVolunteerData.image_url},
+            {name: 'twitter:card', content: 'summary_large_image'}
+        ]
+      }
+  },
+   async asyncData ({params, $axios}) {
+        let response = await $axios.$get(`volunteers/${params.voloId}`)
+        return {getVolunteerData: response}
   
     },
-
-    computed: {
-            
-            getVolunteerData() {
-                let getVolunteerData = this.volunteers.filter(item => item.id == this.$nuxt._route.params.voloId)
-                return getVolunteerData[0]
-            }
-            
-        },    
+   
  
     created() {
             console.clear()

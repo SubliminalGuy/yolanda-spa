@@ -18,7 +18,7 @@
 <script>
 
 import UserCard from "../../components/UserCard"
-import axios from 'axios'
+
 
 export default {
   name: 'volunteers',
@@ -26,16 +26,12 @@ export default {
             UserCard
         },
 
-
-    async asyncData () {
-     let response = await axios.get('https://safe-hamlet-27016.herokuapp.com/volunteers')
-      return {volunteers: response.data}
+    async asyncData ({$axios}) {
+        let response = await $axios.$get("volunteers")
+        return {volunteers: response}
   
-    },
+    }
 
-    created() {
-            console.clear()
-        },
                          
         
 }
