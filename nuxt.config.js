@@ -1,8 +1,17 @@
+import axios from 'axios'
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   mode: 'universal',
   target: 'static',
-  
+  generate: {
+    routes () {
+      return axios.get("https://safe-hamlet-27016.herokuapp.com/volunteers")
+        .then(response => {
+        return response.data.map(post => `volunteers/${post.id}`)
+    })
+  }
+  },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
