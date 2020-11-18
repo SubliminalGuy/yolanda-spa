@@ -10,6 +10,10 @@ export default {
         .then(response => {
         return response.data.map(post => `volunteers/${post.id}`)
     })
+      return axios.get("https://safe-hamlet-27016.herokuapp.com/organisations")
+        .then(response => {
+        return response.data.map(post => `organisations/${post.id}`)
+    })
   }
   },
 
