@@ -5,16 +5,14 @@ export default {
   mode: 'universal',
   target: 'static',
   generate: {
+    /*
     routes () {
       return axios.get("https://safe-hamlet-27016.herokuapp.com/volunteers")
         .then(response => {
         return response.data.map(post => `volunteers/${post.id}`)
     })
-      return axios.get("https://safe-hamlet-27016.herokuapp.com/organisations")
-        .then(response => {
-        return response.data.map(post => `organisations/${post.id}`)
-    })
   }
+  */
   },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
