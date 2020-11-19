@@ -17,7 +17,8 @@
                 </ul>
                 <p class="text-lg md:text-xl lg:text-2xl font-semibold w-full my-2">Mission Statement:</p>
                 <p class="text-base md:lg lg:text-xl"> {{getOrganisationData.message}}</p>
-                
+                <p class="text-lg md:text-xl lg:text-2xl font-semibold w-full my-2">Job Description:</p>
+                <p class="text-base md:lg lg:text-xl"> {{getOrganisationData.Offer}}</p>
             </div>
         </div>
     </div>
