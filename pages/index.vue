@@ -8,9 +8,11 @@
           <h1 class="text-gray-900 bg-transparent tracking-tight font-semibold text-5xl font-sans">
             Be The Change You Want To See In The World
           </h1>
+          <nuxt-link to="/sign-up">
           <button class="flex-none rounded text-white w-auto py-2 px-8 text-center font-light bg-blue-800 shadow-md">
             Join Us!
           </button>
+          </nuxt-link>
         </div>
       </div>
     </div>

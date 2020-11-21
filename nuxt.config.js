@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -37,6 +37,8 @@ export default {
   plugins: [{
     src: '~/plugins/vuex-persist',
     mode: 'client'
+  }, {
+    src: '~/plugins/vuelidate'
   }
   ],
 

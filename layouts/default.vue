@@ -3,9 +3,9 @@
   <navbar></navbar>
    <div v-if="getMenuModal" class="w-full h-screen bg-black">
     <div class="flex flex-wrap justify-center items-center bg-black text-white h-64">
-      <router-link to="/" exact class="w-full text-2xl text-center mt-24 mb-6" ><p @click="clickMenuModal" >home</p></router-link>
-      <router-link to="/organisations" class="w-full text-2xl text-center mt-6 mb-6"><p @click="clickMenuModal">organisations</p></router-link>
-      <router-link to="/volunteers" class="w-full text-2xl text-center mt-6 mb-6"><p @click="clickMenuModal"> volunteers</p></router-link>
+      <nuxt-link to="/" exact class="w-full text-2xl text-center mt-24 mb-6" ><p @click="clickMenuModal" >home</p></nuxt-link>
+      <nuxt-link to="/organisations" class="w-full text-2xl text-center mt-6 mb-6"><p @click="clickMenuModal">organisations</p></nuxt-link>
+      <nuxt-link to="/volunteers" class="w-full text-2xl text-center mt-6 mb-6"><p @click="clickMenuModal"> volunteers</p></nuxt-link>
       <p class="w-full text-2xl text-center my-6" @click="clickMenuModal">sign-in</p>
     </div>
   </div>
