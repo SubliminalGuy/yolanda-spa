@@ -39,7 +39,7 @@ export default {
     mode: 'client'
   }, {
     src: '~/plugins/vuelidate.js',
-    ssr: 'false'
+    mode: 'client'
   }
   ],
 
