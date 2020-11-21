@@ -38,7 +38,8 @@ export default {
     src: '~/plugins/vuex-persist',
     mode: 'client'
   }, {
-    src: '~/plugins/vuelidate'
+    src: '~/plugins/vuelidate',
+    ssr: 'true'
   }
   ],
 
