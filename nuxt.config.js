@@ -62,6 +62,9 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    vendor: [
+      'vuelidate'
+    ]
   }
 }
